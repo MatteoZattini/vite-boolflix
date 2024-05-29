@@ -1,25 +1,32 @@
 <script>
 import axios from 'axios';
 import store from '../data/store.js';
+import AppMovies from './AppMovies.vue';
+import AppTvSeries from './AppTvSeries.vue';
 
 export default {
     name: "AppMain",
     apiKey: "e2184cda789bdddc2b90d342e9e82aa8",
 
+    components: {
+        AppMovies,
+        AppTvSeries,
+    },
+
     data() {
         return {
             store,
-            userInput: "",
+            
         }
     },
 
     methods: {
         getMovies() {
-            console.log(this.userInput)
+            console.log(store.userInput)
             const options = {
                 method: 'GET',
                 url: 'https://api.themoviedb.org/3/search/movie',
-                params: { query: this.userInput, include_adult: 'false', language: 'it-IT', page: '1' },
+                params: { query: store.userInput, include_adult: 'false', language: 'it-IT', page: '1' },
                 headers: {
                     accept: 'application/json',
                     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMjE4NGNkYTc4OWJkZGRjMmI5MGQzNDJlOWU4MmFhOCIsInN1YiI6IjY2NTczMmU3MTIzMjQ1ODQwOTU5OTdmYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.f5HPxSWhlP9Qdsl2L62ghkvR-SZ0laiBbw-hiqSxdK0'
@@ -43,7 +50,7 @@ export default {
             const options = {
                 method: 'GET',
                 url: 'https://api.themoviedb.org/3/search/tv',
-                params: { query: this.userInput, include_adult: 'false', language: 'it-IT', page: '1' },
+                params: { query: store.userInput, include_adult: 'false', language: 'it-IT', page: '1' },
                 headers: {
                     accept: 'application/json',
                     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMjE4NGNkYTc4OWJkZGRjMmI5MGQzNDJlOWU4MmFhOCIsInN1YiI6IjY2NTczMmU3MTIzMjQ1ODQwOTU5OTdmYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.f5HPxSWhlP9Qdsl2L62ghkvR-SZ0laiBbw-hiqSxdK0'
@@ -77,65 +84,15 @@ export default {
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 <div class="input-group w-50 mb-3">
-                    <input v-model="userInput" type="text" class="form-control" placeholder="Cerca un film">
+                    <input v-model="store.userInput" type="text" class="form-control" placeholder="Cerca un film">
                     <button @click="getMovies(), getSeries()" class="btn btn-secondary" type="button"
                         id="button-addon2">search</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>movies</h1>
-            </div>
-            <div class="col-12 d-flex flex-wrap">
-                <div v-for="movie in store.movies" class="movie-box text-center">
-                    <div>
-                        <img :src="'https://image.tmdb.org/t/p/original'+ movie.poster_path" alt="">
-                    </div>
-                    <div>
-                        <h4>{{ movie.title }}</h4>
-                    </div>
-                    <div>
-                        <h5>{{ movie.original_title }}</h5>
-                    </div>
-                    <div>
-                        <span>{{ movie.original_language }}</span>
-                    </div>
-                    <div>
-                        <span>{{ movie.vote_average }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>TV Series</h1>
-            </div>
-            <div class="col-12 d-flex flex-wrap">
-                <div v-for="show in store.series" class="movie-box text-center">
-                    <div>
-                        <img :src="'https://image.tmdb.org/t/p/original'+ show.poster_path" alt="">
-                    </div>
-                    <div>
-                        <h4>{{ show.name }}</h4>
-                    </div>
-                    <div>
-                        <h5>{{ show.original_name }}</h5>
-                    </div>
-                    <div>
-                        <span>{{ show.original_language }}</span>
-                    </div>
-                    <div>
-                        <span>{{ show.vote_average }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <AppMovies />
+    <AppTvSeries />
 </template>
 
 <style scoped>
