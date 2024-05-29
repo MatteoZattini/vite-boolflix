@@ -2,7 +2,7 @@ import { reactive } from "vue";
 
 const iMieiDati = reactive({
     movies: [],
-    series: []
+    series: [],
 });
 
 export default iMieiDati;

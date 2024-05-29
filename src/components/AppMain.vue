@@ -92,7 +92,7 @@ export default {
             <div class="col-12 d-flex flex-wrap">
                 <div v-for="movie in store.movies" class="movie-box text-center">
                     <div>
-                        immagine
+                        <img :src="'https://image.tmdb.org/t/p/original'+ movie.poster_path" alt="">
                     </div>
                     <div>
                         <h4>{{ movie.title }}</h4>
@@ -118,7 +118,7 @@ export default {
             <div class="col-12 d-flex flex-wrap">
                 <div v-for="show in store.series" class="movie-box text-center">
                     <div>
-                        immagine
+                        <img :src="'https://image.tmdb.org/t/p/original'+ show.poster_path" alt="">
                     </div>
                     <div>
                         <h4>{{ show.name }}</h4>
@@ -144,5 +144,9 @@ export default {
     border: 1px solid white;
     margin-bottom: 3rem;
 
+}
+
+img {
+    width: 100%;
 }
 </style>
