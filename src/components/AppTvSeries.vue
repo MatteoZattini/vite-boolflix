@@ -29,7 +29,7 @@ export default {
     <div class="container" :class="store.magic2" style="max-height: 90vh; overflow: auto;">
         <div class="row">
             <div class="col-12">
-                <h1>TV Series</h1>
+                <h1 style="text-shadow: 2px 2px 8px #000;">TV Series</h1>
             </div>
             <div class="col-12 d-flex flex-wrap">
                 <div v-for="show in store.series" class="movie-box text-center position-relative">
@@ -81,8 +81,10 @@ export default {
 }
 
 img:hover {
+    transition: 600ms ease-in-out;
     opacity: 0;
 }
+
 
 .img-box {
     width: 100%;
@@ -97,6 +99,7 @@ img:hover {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 }
 

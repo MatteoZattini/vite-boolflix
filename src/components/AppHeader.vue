@@ -96,16 +96,16 @@ export default {
             <div class="row">
                 <div class="col-6 d-flex align-items-center justify-content-between">
                     <div class="me-3 ms-5 text-danger">
-                        <h2>Boolflix</h2>
+                        <h2 style="text-shadow: 2px 2px 8px #000;">Boolflix</h2>
                     </div>
                     <!-- <div class="me-3">
                         <span>Home</span>
                     </div> -->
                     <div>
-                        <div @click="showTab()" class="me-3 btn bg-white text-danger">
+                        <div @click="showTab()" class="me-3 btn bg-white text-danger fw-bold" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                             <span :class="store.magic3">Serie TV</span>
                         </div>
-                        <div @click="showTab()" id="film" class="me-3 btn bg-white text-danger">
+                        <div @click="showTab()" id="film" class="me-3 btn bg-white text-danger fw-bold" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                             <span :class="store.magic4">Film</span>
                         </div>
 

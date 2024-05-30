@@ -31,7 +31,7 @@ export default {
     <div class="container" :class="store.magic" style="max-height: 90vh; overflow: auto;">
         <div class="row">
             <div class="col-12">
-                <h1>FILMS</h1>
+                <h1 style="text-shadow: 2px 2px 8px #000;">Films</h1>
             </div>
             <div class="col-12 d-flex flex-wrap">
                 <div v-for="movie in store.movies" class="movie-box text-center position-relative">
@@ -93,6 +93,7 @@ export default {
 }
 
 img:hover {
+    transition: 500ms;
     opacity: 0;
 }
 
@@ -111,6 +112,7 @@ img:hover {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 img {
@@ -118,6 +120,7 @@ img {
     height: 100%;
     object-position: top;
     border-radius: 25px;
+    
 }
 
 .flag {
