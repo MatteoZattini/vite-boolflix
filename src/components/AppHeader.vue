@@ -77,7 +77,7 @@ export default {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6 d-flex align-items-center">
-                    <div class="me-3">
+                    <div class="me-3 ms-5">
                         <h2>Boolflix</h2>
                     </div>
                     <div class="me-3">

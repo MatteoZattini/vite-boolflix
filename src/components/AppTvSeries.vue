@@ -40,7 +40,7 @@ export default {
                         <div>
                             <h4>{{ show.name }}</h4>
                         </div>
-                        <div>
+                        <div  v-if="show.name != show.original_name">
                             <h5>{{ show.original_name }}</h5>
                         </div>
                         <div class="d-flex justify-content-center">
@@ -74,6 +74,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     z-index: -1;
+    border-radius: 20px;
 }
 
 img:hover {
@@ -83,6 +84,7 @@ img:hover {
 .img-box {
     width: 100%;
     height: 28rem;
+    border-radius: 20px;
 }
 
 .movie-box {
@@ -91,6 +93,7 @@ img:hover {
     margin-bottom: 3rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    border-radius: 20px;
 
 }
 
@@ -98,6 +101,7 @@ img {
     width: 100%;
     height: 100%;
     object-position: top;
+    border-radius: 20px;
 }
 
 .flag {

@@ -35,6 +35,7 @@ export default {
             </div>
             <div class="col-12 d-flex flex-wrap">
                 <div v-for="movie in store.movies" class="movie-box text-center position-relative">
+                
                     <div class="img-box">
                         <img class="object-fit-cover" :src="'https://image.tmdb.org/t/p/original'+ movie.poster_path" alt="">
                     </div>
@@ -42,9 +43,12 @@ export default {
                         <div>
                             <h4>{{ movie.title }}</h4>
                         </div>
-                        <div>
+                        <div v-if="movie.title != movie.original_title">
                             <h5>{{ movie.original_title }}</h5>
                         </div>
+                        <!-- <div class="description">
+                            <span>{{ movie.overview }}</span>
+                        </div> -->
                         <div class="d-flex justify-content-center">
                             <div class="flag" :class="`fi, fi-`+ movie.original_language"></div>
                         </div>
@@ -68,6 +72,12 @@ export default {
 </template>
 
 <style scoped>
+/* .description {
+    width: 100%;
+    max-height: 10rem;
+    font-size: 15px;
+} */
+
 .hover-card {
     width: 100%;
     height: 100%;
@@ -76,6 +86,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     z-index: -1;
+    border-radius: 20px;
 }
 
 img:hover {
@@ -86,6 +97,7 @@ img:hover {
 .img-box {
     width: 100%;
     height: 28rem;
+    border-radius: 20px;
 }
 
 .movie-box {
@@ -95,13 +107,14 @@ img:hover {
     margin-bottom: 3rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-
+    border-radius: 20px;
 }
 
 img {
     width: 100%;
     height: 100%;
     object-position: top;
+    border-radius: 25px;
 }
 
 .flag {
