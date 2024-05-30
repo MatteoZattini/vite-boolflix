@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container" :class="store.magic" style="max-height: 90vh; overflow: auto;">
         <div class="row">
             <div class="col-12">
                 <h1>FILMS</h1>
@@ -77,6 +77,9 @@ export default {
     max-height: 10rem;
     font-size: 15px;
 } */
+.container::-webkit-scrollbar {
+  display: none;
+}
 
 .hover-card {
     width: 100%;

@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container" :class="store.magic2" style="max-height: 90vh; overflow: auto;">
         <div class="row">
             <div class="col-12">
                 <h1>TV Series</h1>
@@ -66,6 +66,9 @@ export default {
 </template>
 
 <style scoped>
+.container::-webkit-scrollbar {
+  display: none;
+}
 .hover-card {
     width: 100%;
     height: 100%;

@@ -60,7 +60,25 @@ export default {
                 .catch(function (error) {
                     console.error(error);
                 });
-        }
+        },
+
+        showTab() {
+
+            if (store.magic == "d-none") {
+                store.magic = "d-block"
+                store.magic2 = "d-none"
+                store.magic3 = "d-none"
+                store.magic4 = "d-block"
+            } else if (store.magic == "d-block") {
+                store.magic = "d-none"
+                store.magic2 = "d-block"
+                store.magic3 = "d-block"
+                store.magic4 = "d-none"
+            } else {
+                return ""
+            }
+        },
+
     },
 
     mounted() {
@@ -76,20 +94,23 @@ export default {
     <header class="d-flex align-items-center">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-6 d-flex align-items-center">
-                    <div class="me-3 ms-5">
+                <div class="col-6 d-flex align-items-center justify-content-between">
+                    <div class="me-3 ms-5 text-danger">
                         <h2>Boolflix</h2>
                     </div>
-                    <div class="me-3">
+                    <!-- <div class="me-3">
                         <span>Home</span>
+                    </div> -->
+                    <div>
+                        <div @click="showTab()" class="me-3 btn bg-white text-danger">
+                            <span :class="store.magic3">Serie TV</span>
+                        </div>
+                        <div @click="showTab()" id="film" class="me-3 btn bg-white text-danger">
+                            <span :class="store.magic4">Film</span>
+                        </div>
+
                     </div>
-                    <div class="me-3">
-                        <span>Serie TV</span>
-                    </div>
-                    <div class="me-3">
-                        <span>Film</span>
-                    </div>
-                    <div class="me-3">
+                    <!-- <div class="me-3">
                         <span>Originali</span>
                     </div>
                     <div class="me-3">
@@ -97,7 +118,7 @@ export default {
                     </div>
                     <div class="me-3">
                         <span>La mia lista</span>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-6 d-flex justify-content-center">
                     <div class="input-group w-50 mt-2 mb-2">
