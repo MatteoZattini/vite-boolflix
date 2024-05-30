@@ -15,7 +15,7 @@ export default {
     },
 
     methods: {
-       
+      
     },
 
     mounted() {
@@ -42,11 +42,19 @@ export default {
                     <div>
                         <h5>{{ show.original_name }}</h5>
                     </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="flag" :class="`fi, fi-`+ show.original_language"></div>
+                    </div>
                     <div>
                         <span>{{ show.original_language }}</span>
                     </div>
                     <div>
-                        <span>{{ show.vote_average }}</span>
+                        <span v-if="(show.vote_average / 2) >= 0.5"><i class="fa-solid fa-star"></i></span>
+                        <span v-if="(show.vote_average / 2) >= 1.5"><i class="fa-solid fa-star"></i></span>
+                        <span v-if="(show.vote_average / 2) >= 2.5"><i class="fa-solid fa-star"></i></span>
+                        <span v-if="(show.vote_average / 2) >= 3.5"><i class="fa-solid fa-star"></i></span>
+                        <span v-if="(show.vote_average / 2) >= 4.5"><i class="fa-solid fa-star"></i></span>
+                        <span class="ms-2">{{ (show.vote_average / 2).toFixed(0) }}</span>
                     </div>
                 </div>
             </div>
@@ -64,5 +72,10 @@ export default {
 
 img {
     width: 100%;
+}
+
+.flag {
+    width: 24px;
+    height: 18px;
 }
 </style>

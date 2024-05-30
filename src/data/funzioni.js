@@ -1,20 +1,10 @@
-<script>
+
 import axios from 'axios';
 import store from '../data/store.js';
-import functions from '../data/funzioni.js';
 
-export default {
-    name: "AppHeader",
+const leMieFunzioni = {
 
-    data() {
-        return {
-            store,
-            functions,
-        }
-    },
-
-    methods: {
-        getMovies() {
+        getMovies: function() {
             console.log(store.userInput)
             const options = {
                 method: 'GET',
@@ -39,7 +29,7 @@ export default {
 
         },
 
-        getSeries() {
+        getSeries: function() {
             const options = {
                 method: 'GET',
                 url: 'https://api.themoviedb.org/3/search/tv',
@@ -61,58 +51,6 @@ export default {
                     console.error(error);
                 });
         }
-    },
-
-    mounted() {
-        
-    }
 };
 
-
-
-</script>
-
-<template>
-    <header class="d-flex align-items-center">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-6 d-flex align-items-center">
-                    <div class="me-3">
-                        <h2>Boolflix</h2>
-                    </div>
-                    <div class="me-3">
-                        <span>Home</span>
-                    </div>
-                    <div class="me-3">
-                        <span>Serie TV</span>
-                    </div>
-                    <div class="me-3">
-                        <span>Film</span>
-                    </div>
-                    <div class="me-3">
-                        <span>Originali</span>
-                    </div>
-                    <div class="me-3">
-                        <span>Aggiunti di recente</span>
-                    </div>
-                    <div class="me-3">
-                        <span>La mia lista</span>
-                    </div>
-                </div>
-                <div class="col-6 d-flex justify-content-center">
-                    <div class="input-group w-50 mt-2 mb-2">
-                        <input v-model="store.userInput" type="text" class="form-control" placeholder="Cerca un film">
-                        <button @click="getMovies(), getSeries()" class="btn btn-secondary" type="button"
-                            id="button-addon2">search</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-</template>
-
-<style scoped>
-header {
-    height: 10vh;
-}
-</style>
+export default leMieFunzioni;
